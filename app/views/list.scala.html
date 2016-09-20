@@ -1,0 +1,16 @@
+@(categories: Set[Category])
+@main("Catalogo de Categorias") {
+ <h1>Todas las Categorias</h1>
+ <dl>
+ @for(category <- categories) {
+ <dt>
+ <a href="@routes.Categories.show(category.id)">
+ @category.id - @category.name
+ </a>
+ </dt>
+ <dd>@category.description</dd>
+ }
+ </dl>
+ <a href="@routes.Categories.showBlank()" class="btn">
+ <i class="icon-plus"></i> Nueva Categoria</a>
+}
